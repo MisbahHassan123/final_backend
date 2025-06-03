@@ -16,17 +16,17 @@ const create=async(req,res)=>{
 }
 
 
-const getPost=async (req,res)=>{
+const getBook=async (req,res)=>{
     const posts=await Post.find()
 
     if(!posts|| posts.length ==0){
-        return res.json("Post does not availale")
+        return res.json("Book is not availale")
     }
 
     res.json(posts)
 }
 
-const deletePost=async (req,res)=>{
+const deleteBook=async (req,res)=>{
     const {id}=req.params
 
     const resp=await Post.findByIdAndDelete(id)
@@ -52,6 +52,6 @@ const update=async(req,res)=>{
 }
 
 module.exports={
-    create,getPost,update,deletePost
+    create,getBook,update,deleteBook
 }
 
