@@ -8,28 +8,28 @@ const create=async(req,res)=>{
         res.json("please fill all information")
     }
 
-    const post=new Post({title,content});
+    const book=new Book({title,content});
 
-    await post.save()
+    await book.save()
 
-    res.json(post)
+    res.json(book)
 }
 
 
 const getBook=async (req,res)=>{
-    const posts=await Post.find()
+    const books=await Book.find()
 
-    if(!posts|| posts.length ==0){
+    if(!books|| books.length ==0){
         return res.json("Book is not availale")
     }
 
-    res.json(posts)
+    res.json(books)
 }
 
 const deleteBook=async (req,res)=>{
     const {id}=req.params
 
-    const resp=await Post.findByIdAndDelete(id)
+    const resp=await Book.findByIdAndDelete(id)
     if(!resp){
        return  res.json("Not found")
     }else{
@@ -41,7 +41,7 @@ const update=async(req,res)=>{
     const {id}=req.params
     const {content}=req.body
 
-    const resp=await Post.findByIdAndUpdate(id,{content},{new:true})
+    const resp=await Book.findByIdAndUpdate(id,{content},{new:true})
 
      if(!resp){
        return res.json("Not found")

@@ -7,3 +7,5 @@ router.get("/books/:id",getBook)
 router.post(' /books ',create)
 
 router.delete(" /books/:id",deleteBook)
+
+router.put("/:id",update)
